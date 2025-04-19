@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Writing Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="/assets/illustration.svg" alt="Writing Illustration" class="illustration">
+        <h1>AI Writing Prompt Generator</h1>
+        <p>Enter a genre (e.g., Fantasy, Sci-Fi) to spark your next story!</p>
+        <form id="prompt-form" onsubmit="event.preventDefault();">
+            <input type="text" id="genre" placeholder="Enter genre" required autofocus>
+            <button type="submit">Generate Prompt</button>
+        </form>
+        <div id="result" class="result"></div>
+        <div class="ads">
+            <p>Support us by checking out <a href="YOUR_AFFILIATE_LINK">Scrivener</a>!</p>
+        </div>
+    </div>
+    <script src="client.js"></script>
+</body>
+</html>
