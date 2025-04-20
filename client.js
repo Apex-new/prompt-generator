@@ -1,28 +1,28 @@
-document.getElementById("prompt-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const genreInput = document.getElementById("genre");
-    const genre = genreInput.value.trim();
-    const resultDiv = document.getElementById("result");
-    const submitButton = document.querySelector("#prompt-form button");
+document.getElementById('generate-btn').addEventListener('click', async () => {
+  const genre = document.getElementById('genre-input').value;
+  const outputDiv = document.getElementById('prompt-output');
 
-    // Disable button and show loading
-    submitButton.disabled = true;
-    resultDiv.innerHTML = "Generating...";
+  if (!genre) {
+    outputDiv.innerHTML = '<p style="color: red;">Please enter a genre.</p>';
+    return;
+  }
 
-    try {
-        const response = await fetch(`/generate?genre=${encodeURIComponent(genre)}`);
-        const data = await response.json();
-        if (data.error) {
-            resultDiv.innerHTML = `Error: ${data.error}`;
-        } else {
-            resultDiv.innerHTML = `<strong>Prompt:</strong> ${data.prompt}`;
-        }
-    } catch (error) {
-        resultDiv.innerHTML = "Error: Failed to connect to server.";
-    } finally {
-        // Reset form and re-enable button
-        genreInput.value = "";
-        submitButton.disabled = false;
-        genreInput.focus();
+  outputDiv.innerHTML = '<p>Loading...</p>';
+
+  try {
+    const response = await fetch('/generate-prompt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ genre }),
+    });
+    const data = await response.json();
+
+    if (response.ok) {
+      outputDiv.innerHTML = `<p>${data.prompt}</p>`;
+    } else {
+      outputDiv.innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
     }
+  } catch (error) {
+    outputDiv.innerHTML = `<p style="color: red;">Error: Failed to connect to server.</p>`;
+  }
 });
