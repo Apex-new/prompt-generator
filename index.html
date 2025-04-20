@@ -11,15 +11,16 @@
         <img src="/assets/illustration.svg" alt="Writing Illustration" class="illustration">
         <h1>AI Writing Prompt Generator</h1>
         <p>Enter a genre (e.g., Fantasy, Sci-Fi) to spark your next story!</p>
-        <form id="prompt-form" onsubmit="event.preventDefault();">
-            <input type="text" id="genre" placeholder="Enter genre" required autofocus>
-            <button type="submit">Generate Prompt</button>
+        <form id="prompt-form">
+            <input type="text" id="genre-input" placeholder="Enter genre" required autofocus>
+            <button type="button" id="generate-btn">Generate Prompt</button>
         </form>
-        <div id="result" class="result"></div>
+        <div id="prompt-output" class="result"></div>
         <div class="ads">
             <p>Support us by checking out <a href="YOUR_AFFILIATE_LINK">Scrivener</a>!</p>
         </div>
     </div>
     <script src="client.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93359a615ca453b2',t:'MTc0NTE2MjE4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
